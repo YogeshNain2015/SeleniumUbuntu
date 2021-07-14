@@ -14,15 +14,18 @@ public class FirstTest {
         WebDriver driver;
         System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
         ChromeOptions options = new ChromeOptions();
+       // options.addArguments("headless");
         options.addArguments("headless");
+        options.addArguments("no-sandbox");
+        options.addArguments("disable-dev-shm-usage");
         options.addArguments("disable-gpu");
         driver = new ChromeDriver(options);
-        driver.get("https://www.google.com");
+        driver.get("https://www.javatpoint.com/");
+        String URL= driver.getCurrentUrl();
+        System.out.print("Current url is : "+URL);
         System.out.println("Title of the page is: " + driver.getTitle());
-        Assert.assertTrue("Page title is not correct",driver.getTitle().equals("Google"));
+       // Assert.assertTrue("Page title is not correct",driver.getTitle().equals("Google"));
     }
-
-
 }
 
 
